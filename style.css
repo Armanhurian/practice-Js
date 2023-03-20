@@ -1,3 +1,10 @@
 .items{
     cursor: pointer;
 }
+.btnGenerator{
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    
+}

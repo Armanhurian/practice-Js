@@ -32,36 +32,36 @@ console.log(number.toLocaleString());
 
 // for example :
 
-let getCourses = async () => {
+            // let getCourses = async () => {
 
-    const coursesContainer = document.querySelector('#courses-container')
+            //     const coursesContainer = document.querySelector('#courses-container')
 
-    const res = await fetch(`http://localhost:4000/courses`)
+            //     const res = await fetch(`http://localhost:4000/courses`)
 
-    const course = await res.json()
+            //     const course = await res.json()
 
-    return course
-}
+            //     return course
+        // }
 
 
-getCourses().then(course => {
-    console.log(course);
-})
+          // getCourses().then(course => {
+          //     console.log(course);
+          // })
 
 //finish get Data From api or database
 
 //start Post Data From api or database
 
-fetch(`http://localhost:4000/v1//courses/${courses.name}`,{
-  method:'POST', 
-  headers:{
-    Authorization:`Bearer ${userToken}`
-  }, 
+         // fetch(`http://localhost:4000/v1//courses/${course.name}`,{
+         //   method:'POST', 
+         //   headers:{
+         //     Authorization:`Bearer ${userToken}`
+         //   }, 
 
-}).then(res => res.json())
-.then((course) =>{
-    console.log(course);
-})
+         // }).then(res => res.json())
+         // .then((course) =>{
+         //     console.log(course);
+         // })
 
 //finish Post Data From api or database
 
@@ -155,6 +155,70 @@ totalFunc(0,2)
 
 // const totalTime = ``
 
-
-
 // finish Calculate the total time of the default video
+
+//start create random password with click on button
+
+let btnGenerator = document.querySelector('.btnGenerator')
+let inputGenerator = document.querySelector('.inputGenerator')
+let passwordLength = 8
+
+let passwordGeneration = () =>{
+    let password = ''
+    let randomIp = 'aabdcghvjgqfdtjio215533414344$^&^%&^*&GHGG07689sdvfvnekj*@!&(+freygygAZFVHJ'
+    
+    for (let i = 0 ; i < passwordLength; i++) {
+        
+        let randomIndex = Math.floor(Math.random()*randomIp.length);
+        // console.log(inputGenerator);
+        password += randomIp[randomIndex]
+    }
+    console.log(password);
+    
+    inputGenerator.value = password
+    
+}
+
+
+btnGenerator.addEventListener('click', () =>{
+    
+    
+    passwordGeneration()
+})
+
+//finish create random password with click on button
+
+// تابعی بنویسید که یک رشته را به عنوان ورودی دریافت کرده و برعکس آن رشته را به عنوان خروجی برگرداند.
+
+const reverseFunc = (myArrayIndex) => {
+   
+    let newArray = myArrayIndex.split('')
+    let reverseArray = newArray.reverse() 
+    console.log(reverseArray.join(''));
+}
+
+reverseFunc('arman')
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// 4.تمرین متوسط - لیستی از اعداد: تابعی بنویسید که یک لیستی از اعداد را به عنوان ورودی دریافت کند و مجموع آن را برگرداند.
+
+
+const sumNumber = (...args) => {
+  
+    let sum = 0
+    
+    args.map(item => {
+        sum += item
+        return sum
+    }) 
+
+    console.log(sum);
+}
+
+sumNumber(2,4,6,54,32,99)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
