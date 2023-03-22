@@ -319,4 +319,105 @@ btnSubmitTask.addEventListener('click',()=>{
     createAndAppendTasks()
 })
 
-//finish create table for develpment task 
+//finish create table for develpment task
+
+// start shoppingCartBasket practice
+
+const shoppingPrudoctArray = [
+    {id:1 , title:'کفش آسیکس اصل', count:1, price:2500000, photoSrc:'image/65c3e25b99953b18ea92515620dc58dd23cc3a18_1669633318.webp'},
+    {id:2 , title:'کفش  برای تمرین راکتی مردانه', count:1, price:2000000, photoSrc:'image/7eab27cb93ccf379e64db6e3ddbdc65534bf412b_1658260874.webp'},
+    {id:3 , title:'کفش مخصوص پیاده روی مردانه ', count:1, price:3500000, photoSrc:'image/ff2f076be6ded436a14cc1d4e5e48e79b78508ef_1610993916.webp'},
+    {id:4 , title:'کفش مخصوص دوییدن مدل جردن ', count:1, price:2200000, photoSrc:'image/f8d969743686ad03922f9db5ba86a629540687a7_1635770640.webp'},
+    {id:5 , title:'کفش پیاده روی مردانه مدل 01 ', count:1, price:1500000, photoSrc:'image/93931696415e386554ecbad4b3ce46f73cf88d48_1594149411.webp'},
+    {id:6 , title:'کفش باشگاهی مردانه', count:1, price:700000, photoSrc:'image/119579213.webp'},
+]
+
+
+let myProductWrapper = document.querySelector('.myProduct')
+
+let getAllProduct = ()=>{
+
+    shoppingPrudoctArray.forEach((product,index)=>{
+        myProductWrapper.insertAdjacentHTML('beforeend',`
+        
+        <div class="col-4 box-shopping">
+        <img class="myProduct-image" src="${product.photoSrc}" alt="" srcset="">
+        <span class="myProduct-title">${product.title}</span>
+        <span class="myProduct-price">${product.price.toLocaleString()}</span>
+        <button onclick="addProductToBasket(${index},${product.price},${product.id})" class="myProduct-btn">Add</button>
+        </div>
+        
+        `)
+    })
+}
+getAllProduct()
+
+let textPrice = document.querySelector('.text-price')
+let allProductShoppingBasketWrapper = document.querySelector('.allProductShoppingBasket')
+let basketIcon = document.querySelector('.basketIcon')
+let shoppingBasketArray = []
+let sumPrice = 0
+
+
+let addProductToBasket = (productIndex,productPrice,productID)=> {
+    shoppingBasketArray.push(shoppingPrudoctArray[productIndex])
+    allProductShoppingBasketWrapper.innerHTML = ''
+    sumPrice += productPrice
+    textPrice.innerHTML = `My Sum Price : ${sumPrice.toLocaleString()}`
+    
+    let resultSerach = shoppingBasketArray.filter(item => item.id === productID)
+    console.log(resultSerach.length);
+    // console.log(shoppingBasketArray);
+    
+    
+    shoppingBasketArray.forEach((product)=>{
+        allProductShoppingBasketWrapper.innerHTML=''
+        {
+       
+            allProductShoppingBasketWrapper.insertAdjacentHTML('beforeend',`
+            
+            
+            <span class="col-3 d-flex justify-content-center shopBasketBox">
+            <span  class="basketshop-count">${resultSerach.length <= 1 ? product.count : product.count = resultSerach.length}</span>
+            <img class="basketshop-image" src="${product.photoSrc}" alt="">
+            <span class="basketshop-title">${product.title}</span>
+            <span class="basketshop-price">${product.price.toLocaleString()}</span>
+            </span>
+            `)
+            
+        }   
+   })
+   basketIcon.classList.add('shoppingBasket-icon')
+}
+
+
+basketIcon.addEventListener('click',() => {
+    allProductShoppingBasketWrapper.style.display = 'flex'
+})
+
+// start shoppingCartBasket practice
+let randomWordBoxText = document.querySelector('.randomWordBox-text')
+let randomWordBoxBtn = document.querySelector('.randomWordBox-btn')
+let randomWordBoxInput = document.querySelector('.randomWordBox-input')
+let randomWordBox = document.querySelector('.randomWordBox')
+
+let randomPersianWord = ['ریکت','جاوا','زبان','ایران','امیر','آرمان','علی']
+
+let mathRandomWord = Math.floor(Math.random()*randomPersianWord.length);
+let randomIndexOfWord = Math.floor(Math.random()* randomPersianWord[mathRandomWord].length);
+
+console.log(randomPersianWord[mathRandomWord]);
+let myRandomWord  = randomPersianWord[mathRandomWord]
+let xWord = myRandomWord[randomIndexOfWord]
+console.log(xWord);
+console.log(myRandomWord.replace(xWord,'*'));
+
+randomWordBoxText.innerHTML= myRandomWord.replace(xWord,'*')
+
+randomWordBoxBtn.addEventListener('click',()=>{
+   if(randomWordBoxInput.value.trim() !== myRandomWord){
+     randomWordBox.innerHTML = `<div class=" alert alert-danger" role="alert"> حدس شما نادرست است</div>`
+   }else{
+     randomWordBox.innerHTML = `<div class="alert alert-success" role="alert">حدس شما کاملا درست است</div>`
+   }
+})
