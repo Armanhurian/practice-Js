@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>document</title>
-    <link href="css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
@@ -81,7 +81,7 @@
         </div>
         <div class="shoppingContainer">
             <div class="myProduct col-12 row">
-               <!-- loading product in js    -->
+               <!-- loading product in js  -->
             </div>
         </div>
     </div>
@@ -91,6 +91,30 @@
         <input class="randomWordBox-input" type="text" placeholder="set your guess">
         <button class="randomWordBox-btn">click</button>
     </div>
+
+    <div class="PhoneNumberList mt-5 mb-5">
+        <div class="addPhoneNumberList">
+            <input class="addPhoneNumberListInput-text" type="text" placeholder="enter user name">
+            <input class="addPhoneNumberListInput-number" type="text" placeholder="enter user phone">
+            <button class="addPhoneNumberList-btn">Add</button>
+        </div>
+        <div class="PhoneNumberList-container">
+            <table>
+                <thead class="PhoneNumberList-container-thead">
+                    <tr class="header-list">
+                        <th>شماره تلفن</th>  
+                        <th>نام</th>
+                        <th>شناسه</th>
+                    </tr>
+                </thead>
+                <tbody class="PhoneNumberList-container-tbody">
+                    <!-- PhoneNumberList is loaded from js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <i class="fa-sharp fa-solid fa-star myStarMouse"></i>
 
     <script src="index.js" ></script>
 </body>

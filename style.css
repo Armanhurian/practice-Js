@@ -135,3 +135,19 @@ a{
 .randomWordBox-text{
     text-align: center;
 }
+.header-list{
+    background-color: rgb(199, 200, 201);
+}
+.body-list{
+    border: 2px solid rgb(39, 38, 38);
+}
+.body-list td{
+    border-right: 2px solid black;
+}
+td,th{
+    text-align: center;
+    width: 20rem;
+}
+.myStarMouse{
+    position: absolute;
+}

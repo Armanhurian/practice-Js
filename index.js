@@ -395,7 +395,11 @@ basketIcon.addEventListener('click',() => {
     allProductShoppingBasketWrapper.style.display = 'flex'
 })
 
-// start shoppingCartBasket practice
+// finish shoppingCartBasket practice
+
+// start guess a word
+
+
 let randomWordBoxText = document.querySelector('.randomWordBox-text')
 let randomWordBoxBtn = document.querySelector('.randomWordBox-btn')
 let randomWordBoxInput = document.querySelector('.randomWordBox-input')
@@ -421,3 +425,72 @@ randomWordBoxBtn.addEventListener('click',()=>{
      randomWordBox.innerHTML = `<div class="alert alert-success" role="alert">حدس شما کاملا درست است</div>`
    }
 })
+
+// finish guess a word
+
+// start Creating a phone book
+
+let addPhoneNumberListInputText = document.querySelector('.addPhoneNumberListInput-text')
+let addPhoneNumberListInputNumber = document.querySelector('.addPhoneNumberListInput-number')
+let addPhoneNumberListBtn = document.querySelector('.addPhoneNumberList-btn')
+let PhoneNumberListContainerTbody = document.querySelector('.PhoneNumberList-container-tbody')
+
+let newArrayList = []
+
+let addPhoneNumberListFunc = () =>{
+    
+    addPhoneNumberListBtn.addEventListener('click',function(){
+        PhoneNumberListContainerTbody.innerHTML=''
+        let newObjList = {
+           id:newArrayList.length+1,
+           name:addPhoneNumberListInputText.value.trim(),
+           phoneNumber:addPhoneNumberListInputNumber.value.trim()
+        }
+        newArrayList.push(newObjList)
+        console.log(newArrayList);
+        addPhoneNumberListInputText.value=''
+        addPhoneNumberListInputNumber.value=''
+        localStorage.setItem('phoneList',JSON.stringify(newArrayList))
+        addMember()
+        
+    })
+}
+
+window.addEventListener('load',()=>{
+    addPhoneNumberListFunc()
+    newArrayList = JSON.parse(localStorage.getItem('phoneList')) 
+    addMember()
+    console.log(newArrayList);
+})
+
+
+let addMember = () => {
+    newArrayList.forEach((item)=>{
+        PhoneNumberListContainerTbody.insertAdjacentHTML('beforeend',`
+        
+        <tr class="body-list">
+        <td>${item.phoneNumber}</td>
+        <td>${item.name}</td>
+        <td>${item.id}</td>
+        </tr>
+        `)
+    })
+}
+
+// finish Creating a phone book
+
+//start Build stars with mouse movement
+
+let myStarMouse = document.querySelector('.myStarMouse')
+
+
+window.addEventListener('mousemove',event => {
+    myStarMouse.style.top = `${event.clientY}px`
+    myStarMouse.style.left = `${event.clientX}px`
+    console.log(event.clientX);
+    console.log(event.clientY);
+    
+})
+
+
+//finish Build stars with mouse movement
