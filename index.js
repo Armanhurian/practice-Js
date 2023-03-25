@@ -487,10 +487,122 @@ let myStarMouse = document.querySelector('.myStarMouse')
 window.addEventListener('mousemove',event => {
     myStarMouse.style.top = `${event.clientY}px`
     myStarMouse.style.left = `${event.clientX}px`
-    console.log(event.clientX);
-    console.log(event.clientY);
+    // console.log(event.clientX);
+    // console.log(event.clientY);
     
 })
 
 
 //finish Build stars with mouse movement
+
+
+//sort() مرتب کردن هر آرایه ای بدون استفاده از متد 
+
+
+let myNumberArray = [2,6,3,8,4,1,7,5,9,0] 
+
+
+
+let forSortNumber = ()=>{
+    for (let index = 0; index < myNumberArray.length-1; index++) {
+        if(myNumberArray[index] > myNumberArray[index+1]===true){
+
+            let temp = myNumberArray[index]
+            myNumberArray[index] = myNumberArray[index+1]
+            myNumberArray[index+1] = temp
+            console.log(myNumberArray)
+            forSortNumber()
+        }
+    }
+}
+forSortNumber()
+
+
+//sort() مرتب کردن هر آرایه ای بدون استفاده از متد 
+
+
+
+// بک گراند متحرک با حرکت به صورت نرم وآهسته
+
+let basketballIcon = document.querySelector('.basketballIcon')
+let volleyballIcon = document.querySelector('.volleyballIcon')
+let futbolIcon = document.querySelector('.futbolIcon')
+
+let y = 0
+
+let x = 0
+
+let intervalAddCount =  setInterval(()=>{
+        y++
+        basketballIcon.style.top = y + 'px'
+        if(y>110){
+            
+            clearInterval(intervalAddCount)
+            let intervalMinusCount = setInterval(()=>{
+                y--
+                basketballIcon.style.top = y + 'px'
+        
+                if(y===0){
+                  
+                 clearInterval(intervalMinusCount)
+                 intervalAddCountFunc() 
+                  
+              }
+            
+              
+              
+            },10)
+        }
+        
+        
+        
+    },10)
+    
+    
+    
+let intervalMinusCountFunc = ()=>{
+        
+        let intervalMinusCount = setInterval(()=>{
+            y--
+            basketballIcon.style.top = y + 'px'
+
+        if(y===0){
+          
+         clearInterval(intervalMinusCount)
+         intervalAddCountFunc() 
+          
+        }
+    
+      
+      
+      
+    },10)
+}
+let intervalAddCountFunc = ()=>{
+   
+        let intervalAddCount = setInterval(()=>{
+        y++
+        basketballIcon.style.top = y + 'px'
+
+        if(y>110){
+          
+         clearInterval(intervalAddCount)
+         intervalMinusCountFunc() 
+          
+        }
+    
+      
+      
+      
+    },10)
+}
+
+let addCountForLeftMotivation = setInterval(()=>{
+   x++
+   basketballIcon.style.left = x + 'px'
+   if(x===1550){
+    clearInterval(addCountForLeftMotivation)
+   }
+},10)
+
+// بک گراند متحرک با حرکت به صورت نرم وآهسته
