@@ -525,8 +525,7 @@ forSortNumber()
 // بک گراند متحرک با حرکت به صورت نرم وآهسته
 
 let basketballIcon = document.querySelector('.basketballIcon')
-let volleyballIcon = document.querySelector('.volleyballIcon')
-let futbolIcon = document.querySelector('.futbolIcon')
+
 
 let y = 0
 
@@ -606,3 +605,120 @@ let addCountForLeftMotivation = setInterval(()=>{
 },10)
 
 // بک گراند متحرک با حرکت به صورت نرم وآهسته
+
+// start typing Speed Game
+
+let wordArray = ['آرمان','علی','مشهد','اصفهان','تهران','بابلسر','قسطنطنیه','شکسپیر','ابی','موشکافانه']
+let typeWordsSeconds = document.querySelector('.typeWordsSeconds')
+let typeWordsText = document.querySelector('.typeWordsText')
+let typeWordsInput = document.querySelector('.typeWordsInput')
+let typeWordsBtn = document.querySelector('.typeWordsBtn')
+let scoreText = document.querySelector('.scoreText')
+
+
+let randomIndexInArray= Math.round(Math.random()*(wordArray.length-1))
+let randomWordInArray = wordArray[randomIndexInArray]
+console.log(randomWordInArray.length);
+
+typeWordsText.innerHTML = randomWordInArray
+
+
+let randomFunc = () =>{
+    let randomIndexInArray= Math.round(Math.random()*(wordArray.length-1))
+    let randomWordInArray = wordArray[randomIndexInArray]
+    
+    
+    typeWordsText.innerHTML = randomWordInArray
+    let userTime = Math.ceil(randomWordInArray.length/2)+5   
+    // typeWordsText.innerHTML = randomWordInArray
+
+    let intervalUserTime = setInterval(()=>{
+        userTime--
+        typeWordsSeconds.innerHTML = userTime
+        
+        if(userTime===0){
+            // clearInterval(intervalUserTime)
+            if(typeWordsInput.value === randomWordInArray){
+                alert('کاملا درست بریم بعدی');
+                clearInterval(intervalUserTime)
+                console.log('true');
+                randomFunc()
+                score++ 
+                scoreText.innerHTML = `your score is ${score}`
+                
+            }else{
+                console.log('false');
+                alert('Game Over');
+                clearInterval(intervalUserTime)
+                randomFunc()
+                score=0
+                scoreText.innerHTML = `your score is ${score}`
+                
+            }
+        }
+    },1000)
+}
+
+let score = 0
+let userTime = Math.ceil(randomWordInArray.length/2)+5   
+let intervalUserTime = setInterval(()=>{
+    userTime--
+    typeWordsSeconds.innerHTML = userTime
+    
+    if(userTime===0){
+        // clearInterval(intervalUserTime)
+        if(typeWordsInput.value === randomWordInArray){
+            alert('کاملا درست بریم بعدی');
+            clearInterval(intervalUserTime)
+            console.log('true');
+            randomFunc()
+            score++ 
+            console.log(score);
+        }else{
+            console.log('false');
+            alert('Game Over');
+            clearInterval(intervalUserTime)
+            randomFunc()
+            score=0
+            console.log(score);
+        }
+    }
+},1000)
+
+        
+// finish typing Speed Game
+
+
+// start craete timer 2:30
+
+let vollyballIcon = document.querySelector('.vollyballIcon')
+let futbolIcon = document.querySelector('.futbolIcon')
+
+let timerGame = document.querySelector('.timerGame')
+
+let minutes = 2
+let seconds = 30
+
+let timingIntervalForGame = setInterval(()=>{
+    seconds--
+    if(seconds<10){
+        seconds = '0'+ seconds
+        if(minutes=== 0 && seconds === '01'){
+    
+            clearInterval(timingIntervalForGame)
+            
+        }
+        if(seconds === '00'){
+            seconds=59
+            minutes--
+        } 
+            
+        
+    } 
+    console.log(minutes);
+    console.log(seconds);
+    timerGame.innerHTML = `${minutes}:${seconds}`
+    
+},100)
+
+// finish craete timer 2:30

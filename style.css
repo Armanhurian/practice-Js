@@ -163,3 +163,13 @@ td,th{
 .basketballIcon{
     position: absolute;
 }
+.gameTypeWordsBox{
+    
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1rem;
+    
+}
+
