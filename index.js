@@ -608,82 +608,82 @@ let addCountForLeftMotivation = setInterval(()=>{
 
 // start typing Speed Game
 
-let wordArray = ['آرمان','علی','مشهد','اصفهان','تهران','بابلسر','قسطنطنیه','شکسپیر','ابی','موشکافانه']
-let typeWordsSeconds = document.querySelector('.typeWordsSeconds')
-let typeWordsText = document.querySelector('.typeWordsText')
-let typeWordsInput = document.querySelector('.typeWordsInput')
-let typeWordsBtn = document.querySelector('.typeWordsBtn')
-let scoreText = document.querySelector('.scoreText')
+// let wordArray = ['آرمان','علی','مشهد','اصفهان','تهران','بابلسر','قسطنطنیه','شکسپیر','ابی','موشکافانه']
+// let typeWordsSeconds = document.querySelector('.typeWordsSeconds')
+// let typeWordsText = document.querySelector('.typeWordsText')
+// let typeWordsInput = document.querySelector('.typeWordsInput')
+// let typeWordsBtn = document.querySelector('.typeWordsBtn')
+// let scoreText = document.querySelector('.scoreText')
 
 
-let randomIndexInArray= Math.round(Math.random()*(wordArray.length-1))
-let randomWordInArray = wordArray[randomIndexInArray]
-console.log(randomWordInArray.length);
+// let randomIndexInArray= Math.round(Math.random()*(wordArray.length-1))
+// let randomWordInArray = wordArray[randomIndexInArray]
+// console.log(randomWordInArray.length);
 
-typeWordsText.innerHTML = randomWordInArray
+// typeWordsText.innerHTML = randomWordInArray
 
 
-let randomFunc = () =>{
-    let randomIndexInArray= Math.round(Math.random()*(wordArray.length-1))
-    let randomWordInArray = wordArray[randomIndexInArray]
+// let randomFunc = () =>{
+//     let randomIndexInArray= Math.round(Math.random()*(wordArray.length-1))
+//     let randomWordInArray = wordArray[randomIndexInArray]
     
     
-    typeWordsText.innerHTML = randomWordInArray
-    let userTime = Math.ceil(randomWordInArray.length/2)+5   
-    // typeWordsText.innerHTML = randomWordInArray
+//     typeWordsText.innerHTML = randomWordInArray
+//     let userTime = Math.ceil(randomWordInArray.length/2)+5   
+//     // typeWordsText.innerHTML = randomWordInArray
 
-    let intervalUserTime = setInterval(()=>{
-        userTime--
-        typeWordsSeconds.innerHTML = userTime
+//     let intervalUserTime = setInterval(()=>{
+//         userTime--
+//         typeWordsSeconds.innerHTML = userTime
         
-        if(userTime===0){
-            // clearInterval(intervalUserTime)
-            if(typeWordsInput.value === randomWordInArray){
-                alert('کاملا درست بریم بعدی');
-                clearInterval(intervalUserTime)
-                console.log('true');
-                randomFunc()
-                score++ 
-                scoreText.innerHTML = `your score is ${score}`
+//         if(userTime===0){
+//             // clearInterval(intervalUserTime)
+//             if(typeWordsInput.value === randomWordInArray){
+//                 alert('کاملا درست بریم بعدی');
+//                 clearInterval(intervalUserTime)
+//                 console.log('true');
+//                 randomFunc()
+//                 score++ 
+//                 scoreText.innerHTML = `your score is ${score}`
                 
-            }else{
-                console.log('false');
-                alert('Game Over');
-                clearInterval(intervalUserTime)
-                randomFunc()
-                score=0
-                scoreText.innerHTML = `your score is ${score}`
+//             }else{
+//                 console.log('false');
+//                 alert('Game Over');
+//                 clearInterval(intervalUserTime)
+//                 randomFunc()
+//                 score=0
+//                 scoreText.innerHTML = `your score is ${score}`
                 
-            }
-        }
-    },1000)
-}
+//             }
+//         }
+//     },1000)
+// }
 
-let score = 0
-let userTime = Math.ceil(randomWordInArray.length/2)+5   
-let intervalUserTime = setInterval(()=>{
-    userTime--
-    typeWordsSeconds.innerHTML = userTime
+// let score = 0
+// let userTime = Math.ceil(randomWordInArray.length/2)+5   
+// let intervalUserTime = setInterval(()=>{
+//     userTime--
+//     typeWordsSeconds.innerHTML = userTime
     
-    if(userTime===0){
-        // clearInterval(intervalUserTime)
-        if(typeWordsInput.value === randomWordInArray){
-            alert('کاملا درست بریم بعدی');
-            clearInterval(intervalUserTime)
-            console.log('true');
-            randomFunc()
-            score++ 
-            console.log(score);
-        }else{
-            console.log('false');
-            alert('Game Over');
-            clearInterval(intervalUserTime)
-            randomFunc()
-            score=0
-            console.log(score);
-        }
-    }
-},1000)
+//     if(userTime===0){
+//         // clearInterval(intervalUserTime)
+//         if(typeWordsInput.value === randomWordInArray){
+//             alert('کاملا درست بریم بعدی');
+//             clearInterval(intervalUserTime)
+//             console.log('true');
+//             randomFunc()
+//             score++ 
+//             console.log(score);
+//         }else{
+//             console.log('false');
+//             alert('Game Over');
+//             clearInterval(intervalUserTime)
+//             randomFunc()
+//             score=0
+//             console.log(score);
+//         }
+//     }
+// },1000)
 
         
 // finish typing Speed Game
@@ -715,10 +715,148 @@ let timingIntervalForGame = setInterval(()=>{
             
         
     } 
-    console.log(minutes);
-    console.log(seconds);
+    // console.log(minutes);
+    // console.log(seconds);
     timerGame.innerHTML = `${minutes}:${seconds}`
     
-},100)
+},1000)
 
 // finish craete timer 2:30
+
+// start create Fibonacci sequence
+
+let num = [0,1]
+
+for (let I = 1; I < 10; I++) {
+     let sum = num[I+0] + num[I-1];
+     num.push(sum)
+     console.log(num);
+}
+
+// finish create Fibonacci sequence
+
+
+//start crate math game 
+
+let myRandomA = document.querySelector('.myRandomA')
+let myRandomB = document.querySelector('.myRandomB')
+let myRandomC = document.querySelector('.myRandomC')
+let mathBtn = document.querySelectorAll('.mathBtn')
+let qustionMark = document.querySelector('.qustionMark')
+let alertBox = document.querySelector('.alertBox')
+
+let a = 2
+let b = 3
+let c = 1
+
+let randomA = Math.round(Math.random()*a)
+let randomB = Math.round(Math.random()*b);
+let randomC = Math.round(Math.random()*c);
+
+myRandomA.innerHTML = randomA
+myRandomB.innerHTML = randomB
+myRandomC.innerHTML = randomC
+let myNumberOfGame = randomA + randomB - randomC
+
+console.log(myNumberOfGame);
+
+
+
+let percent = 100
+
+let intervalPercent = setInterval(()=>{
+    percent--
+        // console.log(percent);
+        mathBtn.forEach((button)=>{
+            button.style.background = `linear-gradient(to right, #0070ff ${percent}%, white 0%)`
+        })
+    
+        if(percent === 0){
+        clearInterval(intervalPercent)
+        // alert('game over')
+        alertBox.classList.add('alert')
+        alertBox.classList.add('alert-danger')
+        alertBox.innerHTML = 'GAME OVER'
+    }
+},50)
+
+
+let btnClickHandler = (event)=>{
+    
+    console.log(event.target.innerHTML);
+    if(myNumberOfGame == event.target.innerHTML){
+        clearInterval(intervalPercent)
+        // randomIntervalFunc()
+        qustionMark.innerHTML = event.target.innerHTML
+        qustionMark.style.color = 'green'
+        console.log('true');
+    }else{
+        clearInterval(intervalPercent)
+        alertBox.classList.add('alert')
+        alertBox.classList.add('alert-danger')
+        alertBox.innerHTML = 'GAME OVER'
+    }
+}
+
+
+mathBtn.forEach((button)=>{
+    button.addEventListener('click',btnClickHandler)
+})
+
+
+let randomIntervalFunc = ()=>{
+    
+    
+    let randomA = Math.round(Math.random()*a)
+    let randomB = Math.round(Math.random()*b);
+    let randomC = Math.round(Math.random()*c);
+    
+    myRandomA.innerHTML = randomA
+    myRandomB.innerHTML = randomB
+    myRandomC.innerHTML = randomC
+    myNumberOfGame = randomA + randomB - randomC
+    console.log(myNumberOfGame);
+    
+    let btnClickHandler = (event)=>{
+        
+        console.log(event.target.innerHTML);
+        if(myNumberOfGame == event.target.innerHTML){
+            clearInterval(intervalPercent)
+            randomIntervalFunc()
+            qustionMark.innerHTML = event.target.innerHTML
+            qustionMark.style.color = 'green'
+            console.log('true');
+        }
+    }
+    
+    
+    
+    percent = 100
+    
+    let intervalPercent = setInterval(()=>{
+        percent--
+        // console.log(percent);
+        mathBtn.forEach((button)=>{
+            button.style.background = `linear-gradient(to right, #0070ff ${percent}%, white 0%)`
+        })
+        
+        if(percent === 0){
+            clearInterval(intervalPercent)
+            // alert('game over')
+            alertBox.classList.add('alert')
+            alertBox.classList.add('alert-danger')
+            alertBox.innerHTML = 'GAME OVER'
+            alert('GAME OVER')
+        }
+    },70)
+    
+    
+    mathBtn.forEach((button)=>{
+        button.addEventListener('click',btnClickHandler)
+    })
+    
+}
+
+randomIntervalFunc()
+
+//finish crate math game 
