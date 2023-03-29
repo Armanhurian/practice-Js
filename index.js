@@ -859,4 +859,44 @@ let randomIntervalFunc = ()=>{
 
 randomIntervalFunc()
 
-//finish crate math game 
+//finish crate math game
+
+
+
+// پیدا کردن کاراکتر بدون تکرار در یک جمله 
+
+let myWord = 'ali is a good player'
+
+console.log(myWord.length);
+let dsd = myWord.split('')
+console.log(dsd);
+
+
+for (let index = 0; index < dsd.length; index++) {
+    
+    let filteredSliceArray = dsd.filter((word)=>{
+       return word.search(dsd[index])
+    })
+
+    // console.log(filteredSliceArray.length);
+    if(filteredSliceArray.length === dsd.length-1){
+       alert(dsd[index]);
+       break
+    }
+}
+
+// پیدا کردن کاراکتر بدون تکرار در یک جمله 
+
+////////////////////////////////////////////////////////////////
+
+// جنریت کردن عدد رندوم از بین دو عدد
+
+let rand = (min,max) =>{
+    
+    let randomCount =  Math.ceil(Math.random()*(max-min-1)) + min
+    console.log(randomCount);
+}
+
+rand(12,20)
+
+// جنریت کردن عدد رندوم از بین دو عدد
