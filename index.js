@@ -846,7 +846,7 @@ let randomIntervalFunc = ()=>{
             alertBox.classList.add('alert')
             alertBox.classList.add('alert-danger')
             alertBox.innerHTML = 'GAME OVER'
-            alert('GAME OVER')
+            // alert('GAME OVER')
         }
     },70)
     
@@ -900,3 +900,49 @@ let rand = (min,max) =>{
 rand(12,20)
 
 // جنریت کردن عدد رندوم از بین دو عدد
+
+////////////////////////////////////////////////////////
+
+//شماردن تعداد صفرهای عدد ورودی
+
+let myDefaultNumber = 20100000650
+
+let stringyDefaultNumber = String(myDefaultNumber)
+
+// console.log(stringyDefaultNumber);
+
+let ziroCount = 0
+ 
+for (let index = 0; index < stringyDefaultNumber.length-1; index++) {
+    
+    
+    if(myDefaultNumber%10===0){
+        
+        ziroCount++
+    }
+    myDefaultNumber = Math.floor(myDefaultNumber/10);
+    // console.log(myDefaultNumber);
+}
+console.log(ziroCount);
+
+//شماردن تعداد صفرهای عدد ورودی
+
+/////////////////////////////////////////////////////////////
+
+//درست کردن تابع فاکتوریل
+
+let numberForFactoreal = (num)=>{
+    
+    let gf = 1
+    
+    for (let i = num; i > 0; i--) {
+       
+        gf *= i    
+    }
+    console.log(gf);
+}
+
+numberForFactoreal(5)
+
+//درست کردن تابع فاکتوریل
+
