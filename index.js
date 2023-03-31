@@ -946,3 +946,85 @@ numberForFactoreal(5)
 
 //درست کردن تابع فاکتوریل
 
+
+//تشخیص عدد جا افتاده در یک آرایه نامرتب
+
+let myArrayRecievedFromUser = [43,41,44,45,48,46,47,40]
+
+myArrayRecievedFromUser.sort()
+
+let myFirstNumber = myArrayRecievedFromUser[0]
+
+let myLastNumber;
+
+console.log(myArrayRecievedFromUser);
+
+for (let index = 0; index < myArrayRecievedFromUser.length; index++) {
+    
+    myLastNumber = myArrayRecievedFromUser[index]
+    
+}
+
+let emptyArray = []
+
+for (let i = myFirstNumber; i <= myLastNumber; i++) {
+
+    emptyArray.push(i)
+
+}
+
+console.log(emptyArray);
+
+let desiredNumber;
+
+for (let index = 0; index < emptyArray.length; index++) {
+    
+    // console.log(emptyArray[emptyArray.length-1]);
+    // console.log(myArrayRecievedFromUser[myArrayRecievedFromUser.length-1]);
+    // console.log(emptyArray[emptyArray.length-index] === myArrayRecievedFromUser[myArrayRecievedFromUser.length-index]);
+    if (emptyArray[emptyArray.length-index] === myArrayRecievedFromUser[myArrayRecievedFromUser.length-index]) {
+        console.log('true');
+    }else{
+        console.log('false');
+        desiredNumber = emptyArray[emptyArray.length-index];
+        console.log(desiredNumber);  //برگردوندن اون عدد جا افتاده
+        break
+    }
+
+}
+
+//تشخیص عدد جا افتاده در یک آرایه نامرتب
+
+/////////////////////////////////////////////////////////////////////////
+
+//برعکس کردن اعداد ورودی 
+
+let defaultNumber = 48765
+
+let stringNumber = defaultNumber.toString()
+
+// console.log(typeof(defaultNumber));
+// console.log(typeof(stringNumber));
+
+
+if(stringNumber.length===1){
+
+    console.log(defaultNumber);
+
+}else{
+
+    let slicedNumber = stringNumber[stringNumber.length-1]
+    
+    for (let index = 2; index < stringNumber.length+1; index++) {
+        
+        let concatedNumber = stringNumber.concat(stringNumber[stringNumber.length-index])
+        
+        slicedNumber += concatedNumber.slice(concatedNumber.length-1,concatedNumber.length);
+        
+        
+    }
+    console.log(slicedNumber);
+    
+}
+
+//برعکس کردن اعداد ورودی 
