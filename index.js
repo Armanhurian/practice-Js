@@ -880,7 +880,7 @@ for (let index = 0; index < dsd.length; index++) {
 
     // console.log(filteredSliceArray.length);
     if(filteredSliceArray.length === dsd.length-1){
-       alert(dsd[index]);
+    //    alert(dsd[index]);
        break
     }
 }
@@ -1028,3 +1028,127 @@ if(stringNumber.length===1){
 }
 
 //برعکس کردن اعداد ورودی 
+
+////////////////////////////////////////////////////////////////////////////////
+
+//start Write a function that returns all sets of three elements that sum to 0.
+
+// Examples
+
+// threeSum([0, 1, -1, -1, 2]) ➞ [[0, 1, -1], [-1, -1, 2]]
+
+// threeSum([0, 0, 0, 5, -5]) ➞ [[0, 0, 0], [0, 5, -5]]
+
+// threeSum([1, 2, 3]) ➞ []
+
+// threeSum([1]) ➞ []
+
+// =>
+
+let myArr = [0, 0, 0, 5, -5]
+
+let newArr = []
+
+for (let i = 0; i < myArr.length-2; i++) {
+
+    let sumNum = 0
+    
+    let threeSomeArr = myArr.slice(i,i+3);
+
+    console.log(threeSomeArr);
+
+    threeSomeArr.forEach(item => {
+        sumNum +=item
+    })
+    
+    if(sumNum === 0){
+        newArr.push(threeSomeArr)
+    }
+
+    console.log(newArr);
+}
+
+//finish Write a function that returns all sets of three elements that sum to 0.
+
+
+//start Return the Remainder from Two Numbers
+
+function remainder(x, y) {
+    let Remainder = x % y
+    return Remainder
+}
+console.log(remainder(12, 5));
+
+
+//finish Return the Remainder from Two Numbers
+
+/////////////////////////////////////////////////////////////////////////////
+
+//start Add up the Numbers from a Single Number
+
+// Create a function that takes a number as an argument.
+//  Add up all the numbers from 1 to the number you passed to the function. 
+//  For example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 4 = 10.
+
+
+
+function addUp(num) {
+    let firstNum = 0
+	for (let i = 0; i <= num ; i++) {
+        firstNum += i
+    }
+    console.log(firstNum);
+}
+addUp(4)
+
+
+//finish Add up the Numbers from a Single Number
+
+//برای توان از متد زیر استفاده کن
+
+console.log(Math.pow(2,5)); 
+
+//2**5
+
+
+////////////////////////////////////////////////////////////
+
+// Seven Boom!
+// Create a function that takes an array of numbers and return "Boom!" 
+// if the digit 7 appears in the array.
+//  Otherwise, return "there is no 7 in the array".
+
+let emptyArr = []
+
+function sevenBoom(arr) {
+
+	// arr.forEach(item=>{
+	//  let stringItem	= item.toString()
+	//  let searchSeven = stringItem.search(/7/i)
+    //  //console.log(searchSeven)
+
+    //  if(searchSeven != -1){
+    //     console.log(item);
+    //     emptyArr.push(item)
+    //  }
+     
+    // })
+
+    // console.log(emptyArr);
+    // if(emptyArr.length !== 0){
+    //     return 'Boom!';
+    // }else{
+    //     return "there is no 7 in the array";
+    // }
+
+    ///7/.test(arr) ?  console.log('Boom!') : console.log('there is no 7 in the array');;
+
+
+
+    return (arr.join().includes('7') ? "Boom!" : "there is no 7 in the array");
+    
+}
+console.log(sevenBoom([1,2,3,4,107]));
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
