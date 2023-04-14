@@ -1152,3 +1152,166 @@ console.log(sevenBoom([1,2,3,4,107]));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+//برای قرار دادن آرایه دوم بین دو اجزای آرایه اول
+
+function tuckIn(arr1, arr2){
+    
+    console.log([arr1[0],...arr2,arr1[1]]);
+    
+}
+
+tuckIn([[1,10],[11,21]],[[2,3,4]])
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+//محاسبه کنید که یک عدد دورقمی از برعکسش بزرگتر است مثل 32>23 
+
+function largestSwap(num) {
+    num.toString()
+    return(num.toString()[0] < num.toString()[1] ? false : true)
+}
+console.log(largestSwap(32));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+//ساخت دایره با محیط و مساحت مشخص 
+  
+class Circle {
+    constructor(mySide) {
+
+        this.mySide = mySide
+
+    } 
+    getArea(){return Math.PI * (Math.pow(this.mySide,2)) } 
+    getPerimeter(){return Math.PI * (2*this.mySide) } 
+}
+
+console.log(Math.PI);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+//محاسبه تعداد ارقام فاکتوریل عددی که توسط کاربر وارد شده
+
+let factoreal = 1
+
+function noPermsDigits(n){
+    for (let i = n ; i > 0; i--) {
+        factoreal *= i
+    }
+    console.log(factoreal);
+
+    console.log(factoreal.toString().length);
+}
+
+noPermsDigits(1)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+//اعداد رو طوری سه تا سه تا تقسیم کن تا اعداد اول و آخر برابر و عدد وسط متفاوت باشد
+
+let lookCount = 0
+
+function countBoomerangs(arr) {
+	for (let index = 0; index < arr.length; index++) {
+        if(arr[index] === arr[index+2] && arr[index]!== arr[index+1]){
+            console.log('true');
+            lookCount++
+        }else{
+            console.log('false');
+        }
+        
+    }
+     console.log(lookCount);
+}
+
+countBoomerangs([4, 4, 4, 8, 4, 8, 4])
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// generation(2, "f") ➞ "granddaughter"
+
+// generation(-3, "m") ➞ "great grandfather"
+
+// generation(1, "f") ➞ "daughter"
+
+let generationArray =[
+    {Generation:-3,	male:"great grandfather" , female :"great grandmother"},
+    {Generation:-2,	male:"grandfather" , female :"grandmother"},
+    {Generation:-1,	male:"father" , female :"mother"},
+    {Generation:0,	male:"me!" , female :"me!"},
+    {Generation:1,	male:"son" , female :"daughter"},
+    {Generation:2,	male:"grandson" , female :"granddaughter"},
+    {Generation:3,	male:"great grandson" , female :"great granddaughter"},
+]
+
+function generation(x, y) {
+	generationArray.forEach(item=>{
+        if(y === "m" && x === item.Generation ){
+
+            console.log(item.male);
+
+        }else if (y === "f" && x === item.Generation ){
+
+            console.log(item.female);
+
+        }
+    })
+ 
+
+}
+generation(2, "f");
+
+// خواندن کد زیر هم خالی از لطف نیست 
+
+// function generation(x,y) {
+// 	let f = ['great grandmother','grandmother','mother','me!','daughter','granddaughter','great granddaughter'];
+// 	let m = ['great grandfather','grandfather','father','me!','son','grandson','great grandson'];
+// 	return y === 'm' ? m[3+x] : f[3+x];
+// }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// This Triangular Number Sequence is generated from 
+//  a pattern of dots that form a triangle.
+//  The first 5 numbers of the sequence, or dots, are:   1, 3, 6, 10, 15  
+
+// triangle(5) ➞ 15
+
+
+let firstNum = 0
+
+function triangle(n) {
+	for (let i = 1 ; i <= n; i++) {
+        firstNum = firstNum + i 
+    }
+    return firstNum;
+}
+
+console.log(triangle(8));
+
+//خواندن کد زیر هم خالی از لطف نیست با روش دیگر 
+
+function triangle2(n){
+    return n * (n+1)/2
+}
+console.log(triangle2(8));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// کمترین و بیشترین اعضای یک آرایه را جدا کنید
+
+function minMax(arr) {
+    let emptyArr = []
+	
+    emptyArr.push(Math.max(...arr))
+    emptyArr.unshift(Math.min(...arr))
+
+    console.log(emptyArr);
+
+}
+minMax([-13, -72, 98, 43, 24, 65, 31,112])
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
