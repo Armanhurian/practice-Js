@@ -1315,3 +1315,148 @@ function minMax(arr) {
 minMax([-13, -72, 98, 43, 24, 65, 31,112])
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//برای محاسبه تعداد روزهای بین دو تاریخ
+
+function getDays(date1, date2) {
+
+    // one day = 1000 * 60 * 60 * 24
+
+    return  Math.ceil((Math.abs(date2 - date1))/ (1000 * 60 * 60 * 24));
+
+    
+}
+
+console.log(getDays(new Date("jun 12 2015"),new Date("july 1 2015")));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// تبدیل آبجکت به آرایه با دو روش زیر
+
+//روش اول
+
+function toArray1(obj) {
+	return Object.keys(obj).map(item => [item , obj[item]])
+}
+
+console.log(toArray1({age : 19 , name:'arman'}));
+
+//روش دوم و بهتر
+
+function toArray2(obj) {
+    return Object.entries(obj)
+}
+
+console.log(toArray1({age : 19 , name:'arman'}));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//برای مرتب کردن لیست قیمت بر اساس ارزان تر و گران تر
+
+function sortDrinkByPrice(drinks) {
+	return drinks.sort((a, b) => a.price - b.price);
+}
+
+console.log(sortDrinkByPrice([
+	{name: 'water', price: 120}, 
+	{name: 'lime', price: 80}, 
+	{name: 'peach', price: 90}
+]));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//از آنجا که میدانیم ارایه [3,[1,2]]  دو عضو دارد اما میخواهیم بدون در نظر گرفتن آرایه تعداد اجزا را بدست بیاورید که در این آرایه 3 میباشد
+
+function getLength(arr) {
+    let myEmptyArray = []
+    
+    arr.forEach(item=>{
+        
+        let forEachFunc = (item)=>{
+            if(typeof(item)==='object'){
+                item.forEach(item=>{
+                    forEachFunc(item);
+                })
+            }else{
+                myEmptyArray.push(item)
+            }
+        }
+
+        forEachFunc(item)
+    })
+
+    return myEmptyArray.length
+}
+
+console.log(getLength([2, [3], 4, [7]]));
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function histogram(arr, char) {
+    let histogramText = ''
+	for (let index = 0; index < arr.length; index++) {
+
+        histogramText += char.repeat(arr[index]) + '\n'
+    }
+    return histogramText;
+	
+}
+
+console.log(histogram([1, 3, 4], "#"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// در نظر بگیرید  f(x)= x^b تابع
+// مشتق بگیرید سپس 
+// را در آن جایگذاری کنید m 
+
+function derivative(b, m) {
+	return b * ( Math.pow( m , b - 1 ));
+}
+
+console.log(derivative(9, -5));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// اطلاعات جدید را به آبجکت اضافه کنید
+
+//==> روش اول
+
+function addName1(obj, name, value) {
+	
+    console.log({...obj , [name] : value});
+}
+
+addName1({}, "Brutus", 300)
+
+//==> روش دوم
+
+function addName2(obj, name, value) {
+	
+    let o = {[name]:value}
+    
+    console.log(Object.assign(obj,o));
+
+}
+addName2({"aptos" : 100},"Brutus", 300)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تعداد چوب کبریت هایی که باهاش خانه میسازیم را بدست بیار
+
+function matchHouses(step) {
+    
+    let stepCount = 1
+        
+    for (let index = 1; index <= step; index++) {
+        
+        stepCount += 5
+    }
+    return stepCount;
+  
+}
+
+matchHouses(87)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
