@@ -1460,3 +1460,59 @@ function matchHouses(step) {
 matchHouses(87)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//remove falsey value from array
+
+function compact(arr) {
+
+ let myemptyArr = []
+    
+for (let i = 0; i < arr.length; i++) {
+
+    if(arr[i]){
+        myemptyArr.push(arr[i])
+    }
+    
+}	
+ return myemptyArr
+
+}
+
+
+console.log(compact([0, 1, false, 2, "", 3]));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// تابعی بنویسید که دو مقدار دریافت کند اولی مضرب و دومی تعداد آن مضرب و آرایه آن را برگرداند
+
+
+function arrayOfMultiples (num, length) {
+
+	let newArr = []
+
+    newArr.push(num)
+
+    for (let index = 1; index < length; index++) {
+        
+      newIndex = num + (num*index) 
+      
+      newArr.push(newIndex)
+    }
+    return newArr;
+}
+
+console.log(arrayOfMultiples (12, 10));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function charCount(myChar, str) {
+    let  i = 0
+	for (let index = 0; index < str.length; index++) {
+        if(myChar == str[index] ) {
+            i++
+        }
+    }
+    return i;
+}
+
+console.log(charCount("b", "big fat bubble"));
