@@ -1516,3 +1516,124 @@ function charCount(myChar, str) {
 }
 
 console.log(charCount("b", "big fat bubble"));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//حاصل ضرب اجزای وارد شده به جز 0
+
+function combinations(...items) {
+    let combin = 1
+	let toStringItem = items.toString()
+    let craeteArray = toStringItem.split(',')
+    craeteArray.forEach(item => {
+       if(item!=0){
+           combin *=item     
+       } 
+    })
+    return combin;
+
+}
+
+console.log(combinations(2,3,4));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// تعداد اعضای آرایه بدون تکرار را بشمار اگر مثبت ها بیشتر از منفی ها بود درست را برگردان در غیر این صورت غلط را برگردان
+
+
+
+function isPositiveDominant(a) {
+
+    let newArray = []
+
+	for (let index = 0; index < a.length; index++) {
+
+        if(a[index] !== a[index+1]){
+            newArray.push(a[index])
+        }
+     
+    }
+    console.log(newArray);
+
+    let minus = 0
+    let positive = 0
+
+    newArray.forEach(item => item < 0 ? minus++ : positive++)
+
+    console.log(minus);
+    console.log(positive);
+
+    if(positive > minus){
+        return 'true'
+    }else{
+        return 'false'
+    }
+
+    
+
+    // const positive = new Set(a.filter(a=> a>0))
+    // const negative = new Set(a.filter(a=> a<0))
+    // console.log(positive.size);
+    // console.log(negative.size);
+
+}
+
+console.log(isPositiveDominant([3, 3, 3, 3, -1, -1, -1]))
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//محاسبه سبد خرید به سنت و تشخیص اینکه موجودی کافی است یا خیر
+
+function changeEnough(change, amountDue) {
+
+   let sumForShopping = (change[0]/4) + (change[1]/10) + ((change[2]*5)/100) + (change[3]/100)
+
+   if(sumForShopping < amountDue){
+        return false
+   }else{
+        return true  
+   }
+   
+}
+
+console.log(changeEnough([0, 0, 20, 5], 0.75));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//محاسبه اهم
+
+function seriesResistance(arr) {
+    let sumItem = 0
+	arr.forEach( item => {
+       sumItem += item 
+    })
+    if(sumItem <= 1){
+       return `${sumItem} ohm`
+    }else{
+        
+        return `${sumItem} ohms`
+    }
+}
+
+console.log(seriesResistance([10,12, 1, 10]));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//حروف کوچک را از بین کل حروف پیدا کنید
+
+function detectWord(str) {
+    let concatWord = ''
+	for (let index = 0; index < str.length; index++) {
+        
+        if(str[index] === str[index].toLocaleLowerCase()){
+            concatWord += str[index]
+        }
+    }
+    return concatWord;
+}
+
+console.log(detectWord("bEEFGBuFBRrHgUHlNFYaYr"));
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
