@@ -1637,3 +1637,72 @@ console.log(detectWord("bEEFGBuFBRrHgUHlNFYaYr"));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//با دادن یک عدد، آرایه ای حاوی دو نیمه عدد را برگردانید. اگر عدد فرد است، سمت راست ترین عدد را بزرگتر کنید.
+
+function numberSplit(n) {
+	let emptyArr = []
+    let firstNum = Math.floor(n/2)
+    let secondNum = n - firstNum
+    emptyArr.push(firstNum)
+    emptyArr.push(secondNum)
+    return emptyArr;
+}
+
+console.log(numberSplit(-9));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//موجود در یک آرایه را برمی گرداند true  اتابعی ایجاد کنید که تعداد مقادیر  
+
+function countTrue(arr) {
+
+    let myEmptyArray = []
+
+	arr.forEach( item => {
+        if(item){
+            myEmptyArray.push(item)
+        }
+    })
+    return myEmptyArray.length
+}
+
+console.log(countTrue([true,false,false]));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//یک تابع برای انجام عملیات حسابی پایه ایجاد کنید که شامل جمع، تفریق، ضرب و تقسیم روی یک عدد رشته است 
+
+function arithmeticOperation(n) {
+
+    let createArray = n.split('')
+    let findSumIndex = createArray.findIndex(item => {
+        if(item == '+' || item == '/' || item == '*' || item == '-'){
+            return item
+        }
+    })
+    let firstNum = Number(n.slice(0,findSumIndex).trim())
+    let secondNum = Number(n.slice(findSumIndex+1,n.length).trim())
+
+    if(createArray[findSumIndex] === '+'){
+        return firstNum + secondNum
+    }
+    if(createArray[findSumIndex] === '-'){
+        return firstNum - secondNum
+    }
+    if(createArray[findSumIndex] === '*'){
+        return firstNum * secondNum
+    }
+    if(createArray[findSumIndex] === '/'){
+        if(secondNum === 0){
+            return -1
+        }else{
+            
+            return firstNum / secondNum
+        }
+    }
+    
+}
+
+console.log(arithmeticOperation("12 * 12"));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
