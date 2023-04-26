@@ -1706,3 +1706,42 @@ function arithmeticOperation(n) {
 console.log(arithmeticOperation("12 * 12"));
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی بنویسید که حداقل تعداد مبادله را برای تبدیل رشته باینری اول به رشته دوم برمی گرداند
+
+function minSwaps(s1, s2) {
+
+    let changeCount = 0
+
+	let s1Array = s1.split('')
+	let s2Array = s2.split('')
+
+    console.log(s1Array);
+    console.log(s2Array);
+
+    for (let index = 0; index < s1Array.length; index++) {
+
+        if(s1Array[index] === s2Array[index]){
+            //console.log(index);
+        }else{
+            changeCount++
+        }  
+    }
+    return changeCount/2
+}
+
+console.log(minSwaps("01100100100111", "10110010100110"));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// آرایه های زیر را به ترتیب قرار بده 
+
+function sortIt(arr) {
+	return arr.sort((a,b) => a - b)
+}
+
+console.log(sortIt([[3], 4, [2], [5], 1, 6]));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
