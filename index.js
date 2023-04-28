@@ -1745,3 +1745,106 @@ console.log(sortIt([[3], 4, [2], [5], 1, 6]));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function toBoolArray(word) {
+
+    let emptyWordArr = []
+
+    let alphabetArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    
+    for (let index = 0; index < word.length; index++) {
+       
+        let findIndexOfAlphabet = alphabetArray.findIndex(item =>{
+           return item == word[index]
+        })
+
+        let wordId = findIndexOfAlphabet + 1
+
+        if(wordId %2 === 0){
+
+            emptyWordArr.push('false')
+            
+        }else{
+
+            emptyWordArr.push('true')
+        }
+    }
+
+    return emptyWordArr;
+}
+
+console.log(toBoolArray("charming"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Create a function that takes three collections of arguments and returns the sum of the product of numbers. Add the result of the first digit in each collection multiplied together to the result of the second digit in each collection multiplied together to get the final solution.
+
+// Examples
+// product(1,2)(1,1)(2,3) ➞ 8
+// 1 * 1 * 2 + 2 * 1 * 3
+
+//روش اول
+
+function product(...a){
+
+    let firstZarbIndex = 1 
+    let secondZarbIndex = 1 
+    firstZarbIndex *= a[0]
+    secondZarbIndex *= a[a.length-1]
+
+    return function product (...b){
+        firstZarbIndex *= b[0]
+        secondZarbIndex *= b[b.length-1]
+
+        return function product (...c){
+
+            firstZarbIndex *= c[0]
+            secondZarbIndex *= c[c.length-1]
+
+            return firstZarbIndex + secondZarbIndex
+        }
+    }
+}
+console.log(product(10,2)(5,0)(2,3));
+
+
+//روش دوم
+
+// function product (x1,y1){
+//     return function product(x2,y2){
+//         return function product (x3,y3){
+//             return x1 * x2 * x3 + y1 * y2 * y3;
+//         }
+//     }
+// }
+// console.log(product(10,2)(5,0)(2,3));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Fix bug this broken code!
+
+function checkEquals(arr1, arr2) {
+
+	if (arr1.join('') === arr2.join('')) {
+
+  	return true 
+
+    }else {
+
+  	return false
+    }
+}
+
+console.log(checkEquals([4, 6], [4, 6]));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که یک عدد را به عنوان آرگومان دریافت کند و پیام خطای مناسب را برگرداند. شما باید این کار را بدون استفاده از سوئیچ یا دستور if انجام دهید.
+
+function error(n) {
+	return n === 1 ?  "Check the fan: e1" :n === 2 ? "Emergency stop: e2" :n === 3 ? "Pump Error: e3" :n===4 ? "c: e4" :n===5 ? "Temperature Sensor Error: e5" : 101
+}
+
+console.log(error(5));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

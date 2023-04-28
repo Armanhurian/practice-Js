@@ -195,3 +195,10 @@ td,th{
     font-size: 3rem;
     font-weight: bold;
 }
+.boxForWow{
+    background-color: #0070ff;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 0.4rem;
+}
