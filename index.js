@@ -1848,3 +1848,141 @@ console.log(error(5));
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function getFrequencies(arr) {
+
+    let newObj = {}
+
+    for (let index = 0; index < arr.length; index++) {
+        
+        newObj[arr[index]] ? newObj[arr[index]]++ : newObj[arr[index]] = 1
+    }
+    console.log(newObj);
+}
+
+getFrequencies([1, 2, 3, 3, 2])
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let reduceArray = [1,2,3,4,5]
+
+reduceArray.reduce((prev,current)=>{
+    console.log(prev);
+    console.log(current);
+})
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// محاسبه حجم مخروط
+
+function coneVolume(h, r) {
+	return ((Math.PI * h * Math.pow(r,2))/3).toFixed(2)
+};
+
+console.log(coneVolume(15, 6));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی بنویسید که در صورت اینکه عدد صحیحی که ارقامش تکرار شود درست را برگرداند در غیر اینصورت غلط را برگرداند
+
+function isRepdigit(num) {
+    
+    if(num<0){
+        return false 
+    }else{
+        let stringNum = num.toString()
+        let flag = true
+        if(num<10){
+           return flag
+        }else{
+
+            for (let index = 0; index < stringNum.length; index++) {
+                if(stringNum[index] !== stringNum[index+1]){
+                    flag = false
+                }else{
+                    return flag
+                }
+            }
+            return flag
+        }
+
+    }
+}
+
+console.log(isRepdigit(111));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//بزرگترین عدد را از بین عدد چند رقمی زیر پیدا کنید
+
+function highestDigit(number) {
+
+    let createString = number.toString()
+
+    let createArray = createString.split('').sort()
+	
+    return Number(createArray[createArray.length-1]);
+}
+
+console.log(highestDigit(7495037));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تمام اعضای یک آرایه را به توان 3 برسان و با هم جمع کن
+
+function sumOfCubes(nums) {
+    if(nums === []){
+        return 0
+    }else{
+        let sumNum = 0
+        nums.map(item=>{
+            sumNum += Math.pow(item,3)
+        })
+        return sumNum;
+    }
+}
+
+console.log(sumOfCubes([2]));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let text = 'Arman hurian'
+
+text = text.replace('hurian','sadeghi')   // ==> روش اول
+
+//text = text.replace(/hurian/g ,'sadeghi')   // ==> روش دوم
+
+console.log(text);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// بزرگترین مضرب مشترک بین دو عدد را محاسبه کنید
+
+function lcm(n1 , n2) {
+	if(n2 % n1 === 0){
+      return n2;
+    }else{
+      return n1 * n2; 
+    }
+}
+
+console.log(lcm(8, 16));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//صفرهای اضافه را بردار 
+
+function removeLeadingTrailing(n) {
+	console.log(Math.abs(n));
+}
+
+removeLeadingTrailing("00402.000")
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// استرینگ هارا حذف کن
+
+function filterArray(arr) {
+   return	arr.filter(item => typeof(item) !== 'string')
+}
+
+console.log(filterArray([1, "a", "b", 0, 15]));
