@@ -1986,3 +1986,158 @@ function filterArray(arr) {
 }
 
 console.log(filterArray([1, "a", "b", 0, 15]));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//عدد مورد نظر کاربر را پیدا کنید در آبجکت و از بین rammstein
+
+let random = Math.floor(Math.random() * 100 )
+
+obj = {absinth: 100, whiskey: 100, "Rammstein A": 100, "Rammstein B": 50, "Rammstein C": random }
+
+function getVodkaBottle(obj, num) {
+
+    let keysObj = Object.keys(obj)
+
+
+    let mapObj = keysObj.filter(item => {
+        if (item.includes('Rammstein') && obj[item] === num){
+                
+            return item
+        }
+    })
+
+    return mapObj.join('')
+}
+
+console.log(getVodkaBottle(obj, 50));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Calculate the Total Price of Groceries
+
+function getTotalPrice(groceries) {
+    let totalPrice = 0
+	for (let index = 0; index < groceries.length; index++) {
+        
+       totalPrice += (groceries[index].price * groceries[index].quantity)
+
+    }
+    return totalPrice
+}
+
+console.log(getTotalPrice([
+	{ product: "Chocolate", quantity: 1, price: 0.10 },
+	{ product: "Lollipop", quantity: 1, price: 0.20 }
+]));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function shiftToRight(x, y) {
+	return Math.floor(x/Math.pow(2,y))
+}
+
+console.log(shiftToRight(4666, 6));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// تخفیف را پیدا کنید
+//تابعی ایجاد کنید که دو آرگومان قیمت اصلی و درصد تخفیف را به صورت اعداد صحیح بگیرد و قیمت نهایی را پس از تخفیف برگرداند
+
+function dis(price, discount) {
+
+    return price * (1 - discount/100)
+
+}    
+
+
+console.log(dis(89, 20));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+function getOnlyEvens(nums) {
+    let emptyArray = []
+	for (let index = 0; index < nums.length; index++) {
+        if(nums[index] % 2 === 0 && index % 2 === 0){
+           emptyArray.push(nums[index])
+        }    
+    }
+    return emptyArray
+}
+
+console.log(getOnlyEvens([1, 3, 2, 6, 4, 8]));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+//با توجه به یک رشته، تمام کلماتی که طول فرد دارند را معکوس کنید. کلمات با طول زوج تغییر نمی کنند.
+
+function reverseOdd(str) {
+
+	let createArray = str.split(' ')
+
+    let emptyArray = []
+
+    for (let index = 0; index < createArray.length; index++) {
+        if(createArray[index].length %2 !== 0 ){
+
+            let reverseArr = [...createArray[index]].reverse()
+
+            emptyArray.push(reverseArr.join(''))
+
+        }else{
+            emptyArray.push(createArray[index])
+        }
+    }
+    return emptyArray.join(' ')
+}
+
+console.log(reverseOdd("Make sure uoy only esrever sdrow of ddo length"));
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Create a function to check whether the given parameter is an Object or not.
+
+function isObject(value) {
+	console.log( value instanceof Object);
+}
+
+isObject([1,2,3])
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//با توجه به عدد n، تابعی بنویسید که PI را به n رقم اعشار برمی گرداند.
+
+function myPi(n) {
+	return Number((Math.PI).toFixed(n));
+}
+
+console.log(myPi(5));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//انتگرال را محاسبه کنید
+
+function integral(b, m, n) {
+	return (Math.pow(n,b+1) - Math.pow(m,b+1))
+}
+
+console.log(integral(2, 4, 7));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که نام کشور و مساحت آن را به عنوان آرگومان در نظر گرفته و مساحت نسبت کشور از کل خشکی جهان را برمی گرداند.
+
+function areaOfCountry(name, area) {
+
+	let totalAreaOfCountry = ((area/148940000)*100).toFixed(2)
+  
+    return `${name} is ${totalAreaOfCountry}% of the total world's landmass`
+}
+
+
+console.log(areaOfCountry("USA", 9372610));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
