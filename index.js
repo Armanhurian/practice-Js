@@ -2141,3 +2141,121 @@ console.log(areaOfCountry("USA", 9372610));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function countNumberOfOccurrences(obj) {
+
+	let createArr = Object.values(obj)
+
+    console.log(createArr);
+
+    return createArr.reduce((obj1,key)=>{
+
+        if(!obj1[key]){
+            
+            obj1[key] = 1
+
+        }else{
+            
+            obj1[key] += 1
+        }
+
+        return obj1
+
+    },{})
+}
+
+console.log(countNumberOfOccurrences({
+    a: "moron",
+    b: "scumbag",
+    c: "moron",
+    d: "idiot",
+    e: "idiot"
+}));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که دو عدد و یک عملگر ریاضی + - / * را بگیرد و با اعداد داده شده یک محاسبه را انجام دهد.
+
+function calculator(num1, operator, num2) {
+	if(operator === "+"){
+        return num1 + num2
+    }
+    if(operator === "*"){
+        return num1 * num2  
+        
+    }
+    if(operator === "/"){
+        return num1 / num2  
+        
+    }
+    if(operator === "-"){
+        return num1 - num2  
+
+    }
+}
+
+console.log(calculator(2, "*", 2));
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که یک رشته را بگیرد و تعداد (تعداد) مصوت های موجود در آن را برمی گرداند.
+
+function countVowels(str) {
+    let countVowel = 0
+    for (let index = 0; index < str.length; index++) {
+       
+        if(str[index] ==='a' ){
+            countVowel ++
+        }
+        if(str[index] ==='e' ){
+            countVowel ++
+        }
+        if(str[index] ==='i' ){
+            countVowel ++
+        }
+        if(str[index] ==='o' ){
+            countVowel ++
+        }
+        if(str[index] ==='u' ){
+            countVowel ++
+        }
+        
+    }
+    return countVowel
+}
+
+console.log(countVowels("Celebration"));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//جاهای سانسور شده را با ورودی بعدی پر کن و جمله ی اصلی را برگردان
+
+function uncensor(str, vowels) {
+    for (let index = 0; index < vowels.length; index++) {
+        
+        let createArr = str.split('')
+        let findstrIndex = createArr.findIndex(item=>{
+            return item.includes('*')
+        })
+        createArr.splice(findstrIndex,1,vowels[index])
+        str = createArr.join('')
+    }
+    return str;
+}
+
+console.log(uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که آرایه ای از اعداد را بگیرد و دومین عدد بزرگ را برگرداند.
+
+function secondLargest(arr) {
+	let sortedArr = arr.sort((a,b)=>{
+        return a - b 
+    })
+
+    return sortedArr[sortedArr.length-2];
+}
+
+console.log(secondLargest([25, 143, 89, 13, 105]));
+
