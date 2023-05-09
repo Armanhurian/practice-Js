@@ -2259,3 +2259,80 @@ function secondLargest(arr) {
 
 console.log(secondLargest([25, 143, 89, 13, 105]));
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+class Retangle {
+    constructor(height , width) {
+
+        this.height = height;
+        this.width = width;
+        
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی بنویسید که زمان t1 و زمان t2 را به خود اختصاص دهد و تعداد ساعات سپری شده بین این دو زمان را برگرداند.
+
+function hoursPassed(t1, t2) {
+    let firstNum = 0
+    let secondNumber = 0
+	if(t1.includes('AM')){
+
+
+        let findForCut1 = [...t1].findIndex(item =>{
+           return item === ':'
+        })
+
+        firstNum = Number(t1.slice(0,findForCut1)) 
+        
+    }
+    if(t2.includes('AM')){
+        
+        let findForCut2 = [...t2].findIndex(item =>{
+           return item === ':'
+        })
+    
+        secondNumber = Number(t2.slice(0,findForCut2))
+    }
+    if(t1.includes('PM')){
+
+        let findForCut1 = [...t1].findIndex(item =>{
+            return item === ':'
+        })
+ 
+         firstNum = Number(t1.slice(0,findForCut1)) + 12
+       
+         
+    }
+    if(t2.includes('PM')){
+            
+            let findForCut2 = [...t2].findIndex(item =>{
+                return item === ':'
+            })
+                
+            secondNumber = Number(t2.slice(0,findForCut2)) + 12
+            
+    }
+    
+    if(secondNumber <= firstNum){
+        return "No time has passed."
+    }else{
+        return `${secondNumber - firstNum} hours` 
+    }
+}
+
+console.log(hoursPassed("2:00 PM", "4:00 PM"));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که تعداد ارقام عدد صحیح را بشمارد
+
+function count(n) {
+	return [...String(Math.abs(n))].length
+}
+
+console.log(count(-314890));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
