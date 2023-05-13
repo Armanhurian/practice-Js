@@ -2336,3 +2336,151 @@ console.log(count(-314890));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//فرمول لژاندر نماي بزرگترين توان يك عدد p اول را مي‌يابد كه فاكتوريل تعدادي n را تقسيم مي‌كند.
+
+
+function legendre(p, n) {
+
+
+    let sumFactoreal = 0
+
+    for (let i = 1; i < n ; i++) {
+         
+        if(n > Math.pow(p,i)){
+    
+            sumFactoreal += Math.floor(n/(Math.pow(p,i)))
+        }
+    }
+
+    return sumFactoreal
+
+
+    
+}
+
+legendre(3, 600)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//یک تابع زائد بنویسید که یک رشته str را بگیرد و تابعی را برگرداند که str را برمی گرداند.
+
+function redundant(str) {
+
+	return function f1 (){
+       return str
+    }
+
+}
+
+console.log(redundant("pear"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function isTrue(relation) {
+	let removeTrailing = relation.replace(">",",").replace("<",",").replace("=",",")
+    let createArray = removeTrailing.split(',')
+    let firstNum = Number(createArray[0]) 
+    let secondNum = Number(createArray[1]) 
+    if(relation.includes(">")){
+
+        return firstNum > secondNum
+
+    }else if(relation.includes("=")){
+        
+        return firstNum == secondNum
+    }else{
+        
+        return firstNum < secondNum
+    }
+}
+
+console.log(isTrue("15=137")); //false
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// let array = [1,2,3,4]
+
+// let reduceArr = array.reduce((prev,current) => {
+    
+//     return prev + current
+
+// })
+
+// console.log(reduceArr);
+
+
+const array = [15, 16, 17, 18, 19];
+
+function reducer(accumulator, currentValue, index) {
+  const returns = accumulator + currentValue;
+  console.log(
+    `accumulator: ${accumulator}, currentValue: ${currentValue}, index: ${index}, returns: ${returns}`,
+  );
+  return returns;
+}
+
+array.reduce(reducer);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//با توجه به آنچه که قرار است تایپ شود و آنچه در واقع تایپ شده است، تابعی بنویسید که کلید(های) شکسته را برمی گرداند. تابع به نظر می رسد:
+
+function findBrokenKeys(str1, str2) {
+    let newEmptyArr = []
+
+	for (let index = 0; index < str1.length; index++) {
+        
+        if(str1[index] != str2[index]){
+            
+            newEmptyArr.push(str1[index]) 
+        }
+        
+    }
+
+    return [...new Set(newEmptyArr)]
+
+  
+}
+
+console.log(findBrokenKeys("beethoven", "affthoif5"));
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//برای تبدیل نودلیست به آرایه
+
+let options = document.querySelectorAll('option')
+
+console.log([...options]);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function reduceFunc (){
+    
+
+
+    let reducerArr = [1,2,3,4,5]
+    
+     return reducerArr.reduce((prev,currentValue)=>{
+        if (currentValue > 0) {
+            const doubled = currentValue * 2;
+            return [...prev, doubled];
+          }
+        return prev;
+    },[])
+}
+console.log(reduceFunc ());
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function testJackpot(result) {
+	if([...new Set(result)].length === 1){
+        return true
+    }else{
+        return false
+    }
+}
+
+console.log(testJackpot(["abc", "abc", "abc", "abc"]) );
