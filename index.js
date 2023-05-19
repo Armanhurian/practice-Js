@@ -2484,3 +2484,172 @@ function testJackpot(result) {
 }
 
 console.log(testJackpot(["abc", "abc", "abc", "abc"]) );
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function multiply (arr){
+   
+   let emptyArr = [] 
+
+   return function zarbHandel(num){
+     arr.forEach(item => {
+        emptyArr.push(item * num) 
+    })
+    return emptyArr
+}
+}
+
+console.log(multiply([1, 2, 3])(2));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function asciiCapitalize(str) {
+	let mapArray = [...str].map(item=>{
+        if(item.charCodeAt() % 2 === 0){
+           return item.toLocaleUpperCase()
+        }else{
+            return item
+        }
+    })
+    return mapArray.join('')
+
+}
+
+console.log(asciiCapitalize("to be or not to be!"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function mostExpensive(obj) {
+	let createArrayValues = Object.values(obj)
+    let max = Math.max(...createArrayValues)
+    let filteredArray = Object.keys(obj).filter(item=>{
+       return  obj[item] === max
+    })
+
+    return 	`The most expensive one is the ${filteredArray}` 
+}
+
+console.log(mostExpensive ({
+    "Diamond Earrings": 980,
+    "Gold Watch": 250,
+    "Pearl Necklace": 4650
+}));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function findNemo(sentence) {
+
+	let createArray = sentence.split(' ')
+
+    let findIndexArray = createArray.findIndex((item)=>{
+        return item === 'Nemo'
+    })
+
+    if(findIndexArray !== -1){
+
+        return `I found Nemo at ${findIndexArray + 1}!`
+
+    }else{
+        
+        return `I can't find Nemo :(`
+    }
+}
+
+console.log(findNemo("Nemo is me"));
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function maximumScore(tileHand) {
+
+    let sumScore = 0
+
+	tileHand.forEach(item => {
+        sumScore += item.score
+    })
+    return sumScore
+}
+
+console.log(maximumScore(
+    [
+        { tile: "N", score: 1 },
+        { tile: "K", score: 5 },
+        { tile: "Z", score: 10 },
+        { tile: "X", score: 8 },
+        { tile: "D", score: 2 },
+        { tile: "A", score: 1 },
+        { tile: "E", score: 1 }
+    ]
+));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//در هر آرایه ورودی، هر عدد به جز دو عدد حداقل یک بار تکرار می شود. تابعی بنویسید که دو عدد یکتا را برمی گرداند.
+
+
+
+function returnUnique(arr) {
+
+   let filteredArray = arr.filter(x =>{
+    return arr.filter(y =>{
+        return y === x
+    }).length === 1
+     
+   })
+
+   console.log(filteredArray);
+}
+
+returnUnique([1, 9, 8, 8, 7, 6, 1, 6])
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function daysUntil2021(date) {
+
+	let myDate1 = new Date('jan 1 2021') 
+
+	let myDate2 = new Date(date) 
+
+    console.log(myDate2);
+
+    let createDay = 1000*60*60*24
+
+	let resualtDate = myDate1 - myDate2
+
+    if(resualtDate/createDay > 1){
+
+        return `${resualtDate/createDay} days`
+    }else{
+        
+        return `${resualtDate/createDay} day`
+    }
+
+}
+
+console.log(daysUntil2021("10/22/2020"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+function mirror(arr) {
+
+ let newArr = arr.map(item => {
+    return item
+ }) 
+ 
+ newArr.pop()
+
+ let newReverseArr = newArr.reverse()
+ 
+ for (let index = 0; index < newReverseArr.length; index++) {
+    
+    arr.push(newReverseArr[index])
+}
+  return arr
+}
+
+console.log(mirror([0, 2, 4, 6]));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
