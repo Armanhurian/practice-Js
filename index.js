@@ -2653,3 +2653,116 @@ function mirror(arr) {
 console.log(mirror([0, 2, 4, 6]));
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function primeInRange(n) {
+
+    let isPrime = true
+        
+        for (let i = 2; i <  n; i++) {
+
+            if(n % i === 0){
+
+                isPrime = false
+        
+            }
+        }
+        
+
+        if(isPrime){
+
+           return true
+
+        }else{
+
+           return false
+        }
+}
+
+console.log(primeInRange(63));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+//مجموع تمام آیتم های یک آرایه را برگردانید، جایی که هر آیتم در شاخص آن ضرب می شود (بر اساس صفر). برای آرایه های خالی، 0 را برگردانید.
+
+function indexMultiplier(arr) {
+
+    let sumWithIndex = 0
+
+	for (let index = 0; index < arr.length; index++) {
+        
+        sumWithIndex += arr[index] * index
+
+    }
+    return sumWithIndex
+}
+
+console.log(indexMultiplier([1, 2, 3, 4, 5]));
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+function splitNCases(str, cases) {
+
+    let newArray = []
+
+	let itemsLengthInArray = str.length / cases
+
+    if(Math.floor(itemsLengthInArray) === 0){
+        return [ "Error" ]
+    }else{
+
+        for (let i = 0; i < str.length/itemsLengthInArray; i++) {
+            
+            newArray.push(str.slice( i*itemsLengthInArray ,(i*itemsLengthInArray) + itemsLengthInArray)) 
+    
+        }
+        return newArray
+    }
+
+}
+
+console.log(splitNCases("Strengthened", 6));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که دو آرایه "مرتب شده" از اعداد را بگیرد و آرایه ای از اعداد را که در هر دو آرایه ورودی مشترک است برمی گرداند.
+
+function commonElements(arr1, arr2) {
+
+    let newArr = []
+
+	arr1.forEach(item => {
+        //console.log(item);
+        if(arr2.includes(item)){
+            newArr.push(item)
+        }
+    })
+    let myArr = new Set(newArr)
+
+    return [...myArr]
+}
+
+console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//یک آرایه خاص است اگر هر شاخص زوج دارای یک عدد زوج و هر شاخص فرد دارای یک عدد فرد باشد. تابعی ایجاد کنید که اگر آرایه خاصی باشد true و در غیر این صورت false را برمی گرداند.
+
+function isSpecialArray(arr) {
+
+    let isTrue = true
+
+    for (let index = 0; index < arr.length; index++) {
+        
+        if(index % 2 !== 0 && arr[index] % 2 === 0 || index % 2 === 0 && arr[index] % 2 !== 0){
+            isTrue = false
+        }else{
+            isTrue
+        }
+    }
+
+    return isTrue
+}
+
+isSpecialArray([2, 7, 4, 9, 6, 1, 6, 3])
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
