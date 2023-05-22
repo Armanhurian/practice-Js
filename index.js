@@ -56,7 +56,7 @@ console.log(number.toLocaleString());
          //   method:'POST', 
          //   headers:{
          //     Authorization:`Bearer ${userToken}`
-         //   }, 
+         //   }, a
 
          // }).then(res => res.json())
          // .then((course) =>{
@@ -2766,3 +2766,62 @@ function isSpecialArray(arr) {
 isSpecialArray([2, 7, 4, 9, 6, 1, 6, 3])
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//start regex practice
+
+let myText = `This section is dedicated to the JavaScript language itself, 
+and not the parts that are specific to Web pages or other host environments.
+For information about APIs that are specific to Web pages, please see Web APIs and DOM.
+The standards for JavaScript are the ECMAScript Language Specification (ECMA-262) and the ECMAScript Internationalization
+API specification (ECMA-402). As soon as one browser implements a feature, 
+we try to document it. This means that cases where some proposals for new ECMAScript 
+features have already been implemented in browsers,
+documentation and examples in MDN articles may use some of those new features.
+Most of the time, this happens between the stages 3 and 4,\
+and is usually before the spec is officially published.`
+
+console.log(/ .... / .exec(myText));
+
+
+//finish regex practice
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//با توجه به یک رشته ورودی، رشته را کلمه به کلمه معکوس کنید، اولین کلمه آخرین کلمه خواهد بود و غیره.
+
+function reverseWords(string) {
+	let createArray = string.split(' ')
+	let createreversedArray = createArray.reverse()
+    return createreversedArray.join(' ')
+}
+
+console.log(reverseWords("a good example"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function firstRepeat(chars) {
+
+    let  newArr = []
+
+	for (let index = 0; index < chars.length; index++) {
+        
+        
+        
+        if(!newArr.includes(chars[index])){
+
+            newArr.push(chars[index])
+        }else{
+            return chars[index]
+        }
+        
+    }
+    
+    if(newArr.length === chars.length){
+        return '-1'
+    }
+}
+
+
+console.log(firstRepeat("legolas"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
