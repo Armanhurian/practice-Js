@@ -2825,3 +2825,58 @@ function firstRepeat(chars) {
 console.log(firstRepeat("legolas"));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//start regex practice
+
+let textEmail = `https://regexr.com/
+hurianarmann@gmail.com
+info@yahoo.com
+ali@gmail.com`
+
+console.log(/[a-z]+@gmail.com/g.exec(textEmail));
+
+//finish regex practice
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function zeroesToEnd(a) {
+
+	let sortedArray = a.sort((a,b)=> a-b)
+
+    if(sortedArray.includes(0)){
+
+       for (let index = 0; index < sortedArray.length-1; index++) {
+
+            if(!sortedArray[index]){
+              sortedArray.shift()
+              sortedArray.push(0)
+            }
+        }
+        return sortedArray
+        
+    }else{
+        return sortedArray
+    }
+}
+
+console.log(zeroesToEnd([1, 2, 0, 0, 4, 0, 5]));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function isPandigital(num) {
+
+	let createArray = [...String(num)]
+    let isTrue = true
+    for (let index = 0; index < 10 ; index++) {
+        if(createArray.includes(String(index))){
+            isTrue
+        }else{
+            isTrue = false
+        }
+    }
+    return isTrue
+}
+
+console.log(isPandigital(4920124852367763));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
