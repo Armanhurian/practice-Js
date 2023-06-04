@@ -2880,3 +2880,141 @@ function isPandigital(num) {
 console.log(isPandigital(4920124852367763));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی ایجاد کنید که مجموع اعداد از دست رفته را برمی گرداند.
+
+function sumMissingNumbers(arr) {
+	let sortedArray = arr.sort((a,b)=> a - b)
+    let sumMissNum = 0
+    for (let index = sortedArray[0] ; index <= sortedArray[sortedArray.length-1]; index++) {
+        
+        if(!sortedArray.includes(index)){
+            sumMissNum += index
+        }
+        
+    }
+    return sumMissNum
+}
+
+console.log(sumMissingNumbers([10, 7, 5, 3, 1]));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function maskify(str) {
+
+    let concatText = ''
+
+	for (let i = 0 ; i <= str.length-1 ; i++) {
+
+        if(i<str.length-4){
+           concatText += '#'
+        }else{
+            concatText += str[i]
+        }
+        
+    }
+    console.log(concatText);
+}
+
+maskify("4556364607935616")
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//سوال مصاحبه ای 
+
+var value = 20;
+var result = 18;
+
+(function () {
+    result = value
+    var value = 15 
+})();
+
+console.log(result);  //undefined
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function myBrand (obj) {
+    obj.brand = 'Toyota'
+}
+
+const car = {
+    brand: "Honda",
+    model: "Accord",
+    year: 1998,
+}
+
+console.log(car.brand); //Honda
+
+myBrand(car)
+
+console.log(car.brand); //Toyota
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let p = 5 
+
+function myFirsFunc (){
+    let p = 9
+
+    function dec(){
+        console.log(p);
+    }
+
+    const exp = function(){
+        console.log(p);
+    }
+
+    const cons = new Function('console.log(p)')
+
+    dec()
+    exp()
+    cons()
+}
+
+myFirsFunc()
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function doesTriangleFit(brick, hole) {
+
+    if(brick[0] + brick[1] > brick[2] && brick[1]+ brick[2] > brick[0] && brick[0]+ brick[2] > brick[1]){
+
+        if(hole[0] + hole[1] > hole[2] && hole[1]+ hole[2] > hole[0] && hole[0]+ hole[2] > hole[1]){
+
+            return true
+
+        }else{
+
+            return false
+
+        }
+
+    }else{
+
+        return false
+
+    }  
+	
+}
+
+console.log(doesTriangleFit([3, 6, 8], [1, 10, 8]));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//  n ساخت یک آرایه با ورودی عدد 1 تا  
+
+const df = (n) => {
+
+    let createArr = [...Array(n + 1).keys()]
+
+    let sliceFirstZiro = createArr.slice(1)
+    
+    console.log(sliceFirstZiro);
+} 
+
+df(3)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
