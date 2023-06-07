@@ -3017,4 +3017,125 @@ df(3)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function multiplyNums(nums) {
 
+  let firstNum = 1
+
+  let newArray = nums.split(',')
+
+newArray.forEach(item =>{
+    firstNum *= Number(item)
+
+})
+  return firstNum
+
+}
+
+console.log(multiplyNums("1, 2, 3, 4"));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function sortDescending(num) {
+	let toString = String(num)
+    let withArray = [...toString].sort((a,b) => a - b)
+    let updateString = withArray.reverse().join('')
+    let updateNumber = Number(updateString)
+    return updateNumber
+}
+
+console.log(sortDescending(73065));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی بنویسید که اضافه کاری و حقوق مربوط به اضافه کاری را محاسبه کند.
+
+function overTime(arr) {
+	if(arr[1] <= 17){
+
+      return `$${((arr[1] - arr[0]) * arr[2]).toFixed(2)}`
+
+    }else{
+
+       if(arr[0] <= 17){
+
+           return `$${(((17 - arr[0]) * arr[2]) + ((arr[1] - 17) * arr[2] * arr[3])).toFixed(2)}`
+
+        }else{
+            
+            return `$${((arr[1] - arr[0]) * arr[2] * arr[3]).toFixed(2)}`
+       }
+    }
+}
+
+console.log(overTime([9, 18, 40, 2]));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// function isProbMatrix(arr) {
+    
+//     let isProbMatrixx = true
+
+
+
+//  if(arr[0].length === arr.length){
+
+//     for (let index = 0; index < arr.length; index++) {
+        
+//         let itemArr = arr[index]
+       
+//         for (let i = 0; i < itemArr.length; i++) {
+                
+//             if( itemArr[i] >= 0 && itemArr[i] <= 1){
+       
+//                 if(itemArr[0] + itemArr[1] + itemArr[2] === 1){
+
+//                     isProbMatrixx = true
+
+//                 }else{
+
+//                     isProbMatrixx = false 
+
+//                 }
+                    
+//             }else{
+       
+//                 isProbMatrixx = false 
+       
+//             }
+               
+//         }
+
+
+//     }
+
+//  }else{
+
+//     isProbMatrixx = false 
+
+//  }
+
+//  return isProbMatrixx
+
+// }
+
+//روش بهتر 
+
+function isProbMatrix(arr) {
+   return arr.every(itemArr => {
+       return (
+            itemArr.every(num => num >= 0 && num <= 1) &&
+            itemArr.every(num => itemArr.length === arr.length)&&
+            itemArr.reduce((a,b) => a+b, 0) === 1
+        ) 
+
+    })
+
+}
+
+
+console.log(isProbMatrix([
+    [0.5, 0.5, 0.0],
+    [0.2, 0.5, 0.3],
+    [0.1, 0.2, 0.7]
+]));
