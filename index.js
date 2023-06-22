@@ -3139,3 +3139,153 @@ console.log(isProbMatrix([
     [0.2, 0.5, 0.3],
     [0.1, 0.2, 0.7]
 ]));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function f(){
+    console.log(1);
+}
+
+// f() === 1
+
+//use strict
+
+{
+    function f() {
+        console.log(2);
+    }
+}
+
+f() // f() === 2
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function nearestChapter(chapt, page) {
+
+    let emptyArray = []
+
+	let setArray = Object.values(chapt)
+
+    console.log(setArray);
+
+    for (let i = 0; i < setArray.length; i++) {
+
+        emptyArray.push(Math.abs(setArray[i] - page))
+
+    
+    }
+    
+    let sortedArray = emptyArray.sort((a,b) => a - b )
+
+    if(sortedArray[0] === sortedArray[1]){
+
+        setArray.forEach((item) => {
+    
+            if(Math.abs(item - page) === emptyArray[1]){
+    
+                if(chapt[Object.keys(chapt)[1]] === item){
+                   console.log(Object.keys(chapt)[1]);
+                }
+            }
+        })
+    }else{
+        
+        setArray.forEach((item,index) => {
+    
+            if(Math.abs(item - page) === emptyArray[0]){
+    
+                if(chapt[Object.keys(chapt)[index]] === item){
+                   console.log(Object.keys(chapt)[index]);
+                }
+            }
+        })
+    }
+
+    
+}
+
+
+nearestChapter({"Chapter 1a" : 1,
+ "Chapter 1b" : 5,
+  "Chapter 1c" : 50,
+   "Chapter 1d" : 100,
+    "Chapter 1e" : 200}, 74)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function additivePersistence(n,count){ 
+
+    
+    let numArray = n.toString().split('')
+    
+    if(numArray.length === 1){
+
+        count = 0
+
+        console.log(count);
+
+    }else{
+
+        let sum = 0
+        
+        for (let i = 0; i < numArray.length; i++) {
+            
+            sum += Number(numArray[i])
+            
+        }
+    
+        count++
+    
+        console.log(count);
+        
+        if(sum.toString().length !== 1){
+            
+            additivePersistence(sum,count)
+            
+        }
+
+    }
+    
+    
+}
+
+additivePersistence(12656,0)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function operation(a, b, op) {
+	let numA = Number(a)
+	let numB = Number(b)
+    
+    if(op === "add"){
+
+        return numA + numB
+
+    }else if(op === "subtract"){
+        
+        return numA - numB
+        
+    }else if(op === "multiply"){
+        
+        return numA * numB
+        
+    }else if(op === "divide"){
+        
+        if(numB !== 0){
+            
+            return numA / numB
+
+        }else{
+            
+            return 'undefined'
+        }
+
+    }
+
+}
+
+console.log(operation("1",  "2",  "add" ));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
