@@ -451,7 +451,7 @@ let addPhoneNumberListFunc = () =>{
         addPhoneNumberListInputText.value=''
         addPhoneNumberListInputNumber.value=''
         localStorage.setItem('phoneList',JSON.stringify(newArrayList))
-        addMember()
+       // addMember()
         
     })
 }
@@ -459,23 +459,23 @@ let addPhoneNumberListFunc = () =>{
 window.addEventListener('load',()=>{
     addPhoneNumberListFunc()
     newArrayList = JSON.parse(localStorage.getItem('phoneList')) 
-    addMember()
+   // addMember()
     console.log(newArrayList);
 })
 
 
-let addMember = () => {
-    newArrayList.forEach((item)=>{
-        PhoneNumberListContainerTbody.insertAdjacentHTML('beforeend',`
+// let addMember = () => {
+//     newArrayList.forEach((item)=>{
+//         PhoneNumberListContainerTbody.insertAdjacentHTML('beforeend',`
         
-        <tr class="body-list">
-        <td>${item.phoneNumber}</td>
-        <td>${item.name}</td>
-        <td>${item.id}</td>
-        </tr>
-        `)
-    })
-}
+//         <tr class="body-list">
+//         <td>${item.phoneNumber}</td>
+//         <td>${item.name}</td>
+//         <td>${item.id}</td>
+//         </tr>
+//         `)
+//     })
+// }
 
 // finish Creating a phone book
 
@@ -3289,3 +3289,245 @@ function operation(a, b, op) {
 console.log(operation("1",  "2",  "add" ));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function xPronounce(sentence) {
+    
+    let text1 = sentence.replace(/(?<=\s)x(?=\s)/,'ecks')
+    let text2 = text1.replace(/(?<=\w)x/,'cks')
+    let text3 = text2.replace(/(?<=\s)x/,'z')
+  
+    return text3
+  
+  }
+  
+  console.log(xPronounce("Inside the box was a xylophone"));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function chunkify(arr, size) {
+
+    let newArray = []
+
+	if(arr.length >= size){
+
+
+       for (let i = 0; i < arr.length; i++) {
+
+         let cutArray = arr.slice(i*size,(i+1)*size)
+
+         if(cutArray.length){
+             
+             newArray.push(cutArray);
+         }
+
+         
+        }
+
+    }else{
+        newArray.push(arr)
+    }
+
+    return newArray
+}
+
+console.log(chunkify([2, 3, 4, 5], 2));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//تابعی بنویسید که اگر دو آرایه در صورت ترکیب یک دنباله متوالی تشکیل دهند، مقدار true را برمی گرداند. دنباله متوالی دنباله ای است بدون هیچ شکافی در اعداد صحیح، به عنوان مثال. 1، 2، 3، 4، 5 دنباله ای متوالی است، اما 1، 2، 4، 5 نیست.
+
+function consecutiveCombo(a1, a2) {
+
+    let isTrue = true
+
+    a2.forEach(item => {
+        a1.push(item)
+    })
+
+    let sortedArray = a1.sort((a,b) => a - b)
+
+    for (let i = 0; i < sortedArray.length; i++) {
+
+        if(sortedArray[i+1] - sortedArray[i] > 1){
+
+            isTrue = false
+
+        }
+        
+    }
+    
+    return isTrue
+}
+
+console.log(consecutiveCombo([7, 4, 5, 1], [2, 3, 6]));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//با توجه به دو عدد صحیح a و b، برمی‌گردانید که چند بار a را می‌توان نصف کرد در حالی که هنوز از b بزرگتر است.
+
+function halveCount(a, b) {
+
+
+    let count = 0
+
+	let division = (A) => {
+        
+        if( (A/2) > b ){
+            let createHalf = A/2
+            division (createHalf)
+            count++
+        }
+        
+    }
+    
+    division(a)
+    
+    return count
+}
+
+console.log(halveCount(624, 8));
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let totalArray = []
+
+function buildStaircase(height, block) {
+	
+    for (let i = 1; i <= height; i++) {
+        totalArray.push([])
+    }
+
+    for (let index = 0 ; index < totalArray.length; index++) {
+
+        for (let x = 0; x < index + 1; x++) {
+            totalArray[index].push(block)
+        }
+    }
+
+    for (let index = 0; index < totalArray.length; index++) {
+        myAddGenerate = height - totalArray[index].length
+
+        for (let i = myAddGenerate; i > 0; i--) {
+            totalArray[index].push("_")
+        }
+        
+    }
+    return totalArray
+}
+
+console.log(buildStaircase(3, '#'));
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function editWords(arr){
+
+    let resualtArray = []
+
+    let sortedArray = arr.map( item => {
+      return [...item].reverse().join('').toLocaleUpperCase()
+    })
+
+    for (let index = 0; index < sortedArray.length; index++) {
+
+        if(sortedArray[index].length){
+
+            let thisIndex = Math.ceil(sortedArray[index].length/2)
+
+            let createArray = sortedArray[index].split('')
+
+            createArray.splice(thisIndex,0,'-')
+
+            resualtArray.push(createArray.join(''))
+
+        }else{
+
+            resualtArray.push('-')
+    
+        }
+    }
+
+    return resualtArray
+}
+
+console.log(editWords(["null", "undefined"]));
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function diamondArrays(x) {
+
+    let totalArray = []
+
+    let newArray = []
+
+    for (let i = 0; i < x; i++) {
+        totalArray.push([])
+    }
+
+    for (let index = 0; index < totalArray.length; index++){
+
+        if(index < x){
+            
+            for (let i = 0; i <= index; i++) {
+    
+                totalArray[index].push(index + 1)
+                
+            }
+
+        }
+    
+    }
+
+    for (let index = 0; index < x - 1; index++) {
+
+        newArray.push(totalArray[index])
+
+    }
+    newArray.reverse().forEach(item => {
+        totalArray.push(item)
+
+        return totalArray
+    })
+
+
+
+}
+
+console.log(diamondArrays(5));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function averageWordLength(str) {
+
+    let Array = [...str]
+    
+    for (let index = 0; index < Array.length; index++) {
+
+        if(Array[index].includes('.') || Array[index].includes(',') || Array[index].includes('?') || Array[index].includes('!')){
+    
+            Array.splice(index,1);
+
+                    
+        }
+    }
+            
+    let toStr = Array.join('')
+
+
+	let createArray = toStr.split(' ')
+
+    let totalLength = 0
+
+    for (let index = 0; index < createArray.length; index++) {
+
+        totalLength += createArray[index].length
+    }
+
+    let result = (totalLength / createArray.length).toFixed(2)
+
+    return result
+}
+
+averageWordLength("What a gorgeous day.")
