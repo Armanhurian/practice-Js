@@ -3531,3 +3531,129 @@ function averageWordLength(str) {
 }
 
 averageWordLength("What a gorgeous day.")
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function spaceApart(arr) {
+
+    let totalNumber = 0
+
+    if(arr[0] !== "1"){
+
+        let indexForSlice = arr.findIndex((item,index) => {
+            if(item === "1"){
+    
+                return index
+    
+            }
+        })
+
+        let updateArray = arr.slice(indexForSlice, arr.length)
+
+        for (let i = 0; i < updateArray.length; i++) {
+
+           if(updateArray[i] === "1"){
+             updateArray.splice(i,1)
+           }
+
+        }
+
+        for (let index = 0; index < updateArray.length; index++) {
+            if(updateArray[index] >= 0){
+
+                totalNumber += updateArray[index]
+
+            }else{
+                totalNumber = 'invalid'
+            }
+        }
+        
+        return totalNumber
+        
+    }else{
+        if(arr.length !== 1){
+            
+            for (let i = 0; i < arr.length; i++) {
+    
+               if(arr[i] === "1"){
+                 arr.splice(i,1)
+               }
+    
+            }
+
+            for (let index = 0; index < arr.length; index++) {
+                if(arr[index] >= 0){
+
+                    totalNumber += arr[index]
+
+                }else{
+                    totalNumber = 'invalid'
+                }
+            }
+    
+            return totalNumber
+
+        }else{
+
+            return 'invalid'
+
+        }
+    }
+}
+
+console.log(spaceApart(["1", 9, 20, 38, "1"]));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function swapTwo(s) {
+
+    let myArray = []
+
+	if(Math.floor(s.length/2) % 2 === 0 ){
+
+        for (let i = 0; i <= s.length; i++) {
+
+            myArray.push(s.slice(i*2,(i*2) + 2));
+
+        }
+
+
+        for (let index = 0; index < myArray.length/2 ; index++) {
+            
+            myArray.splice(index*2 , 0 , myArray[(index*2)+1])
+
+            myArray.splice(((index*2)+1) + 1 , 1)
+            
+        }
+        
+        return myArray.join('')
+
+        
+    }else{
+
+        for (let i = 0; i < s.length; i++) {
+
+            myArray.push(s.slice(i*2,(i*2) + 2));
+
+        }
+
+        let counter = Math.floor(s.length / 4)
+
+        for (let index = 0; index < counter; index++) {
+
+            if(myArray[index].length == 2){
+                
+                myArray.splice(index*2 , 0 , myArray[(index*2)+1])
+    
+                myArray.splice(((index*2)+1) + 1 , 1)
+    
+                
+            }
+        }
+        
+        return myArray.join('')
+        
+    }
+}
+
+console.log(swapTwo("FFGGHHI"));
